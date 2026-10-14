@@ -1,11 +1,5 @@
-## Networking
-BGP routers trust route announcements from neighbours, so a network can mis-announce a prefix it does not hold and pull the owner's traffic towards itself. With RPKI, the holder publishes signed Route Origin Authorizations (ROAs) naming which AS may originate the prefix. Routers mark each route Valid, Invalid or NotFound and can block Invalid ones. RPKI checks only the origin AS, not the path, so a forged path ending in the valid AS still succeeds.
-Resource: RFC 6811 - BGP Prefix Origin Validation - https://www.rfc-editor.org/rfc/rfc6811
+## Misconception in My Track
+A common wrong belief is that passwords and API keys are safe inside the code, or inside a config file committed to the repository, as long as the repository is private. The Twelve-Factor App says the opposite: storing config as constants in code is a violation, and even config files kept outside Git are easy to check in by mistake. Its litmus test, in the section "III. Config", is: "A litmus test for whether an app has all config correctly factored out of the code is whether the codebase could be made open source at any moment, without compromising any credentials."
 
-## Cybersecurity
-Log4Shell (CVE-2021-44228) was a flaw in log4j-core, part of the Apache Log4j 2 Java logging library. Its JNDI features did not protect against attacker-controlled LDAP endpoints, so anyone controlling a log message could make the server load and run arbitrary code. It scored 10.0 Critical: attackable over the network, low complexity, no privileges or user interaction needed. Apache fixed it in 2.15.0 for Java 8, 2.12.2 for Java 7 and 2.3.1 for Java 6.
-Resource: Security - Apache Logging Services - https://logging.apache.org/security.html
-
-## Data
-An SBOM is a nested inventory, a list of ingredients that make up software. The 2026 CISA Minimum Elements, which replace the NTIA 2021 list, set two groups of data fields. SBOM Metadata: author, author signature, data format name and version, generation context, timestamp, tool name and version, and SBOM version. Component Data: producer, name, version, identifiers, hash value and hash algorithm, license, and dependency relationship. An SBOM should cover all components, including transitive dependencies.
-Resource: 2026 Minimum Elements for a Software Bill of Materials (SBOM) - https://www.cisa.gov/sites/default/files/2026-07/2026_cisa_sbom_minimum_elements_508c.pdf
+## Open Question
+How can the provider check, before deployment, that a pre-trained AI model from an outside supplier has not been poisoned? I would learn which extra SBOM elements CISA expects for AI systems, since the 2026 guidance says AI software may need more than the minimum.
