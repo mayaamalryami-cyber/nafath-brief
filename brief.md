@@ -1,2 +1,2 @@
-Version: NAFATH-V4
-Track: Software
+## Overview
+A national service provider depends on code, AI models and internet routes that it did not fully build, and an attacker needs to compromise only one link. The six fields protect different links of this chain. In Software, credentials kept outside the code cannot leak when the code is shared. In AI, training data and supplied models can be poisoned before they reach production. In Mobile, MASVS gives a standard way to verify the apps that citizens install. In Networking, RPKI blocks some false route announcements, but not all of them. In Cybersecurity, Log4Shell showed how one hidden logging library let attackers run code remotely. In Data, an SBOM lists every component, so a vulnerable one is found quickly.
