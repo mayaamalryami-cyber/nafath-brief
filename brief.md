@@ -1,12 +1,11 @@
-## Software
-The Twelve-Factor App defines config as everything likely to vary between deploys, such as database handles and credentials for external services. It must be stored in environment variables, not as constants in the code, because the methodology requires strict separation of config from code. The test: could the codebase be made open source at any moment without compromising any credentials? Environment variables are also easy to change per deploy and rarely committed by accident.
-Resource: III. Config - The Twelve-Factor App - https://12factor.net/config
+## Networking
+BGP routers trust route announcements from neighbours, so a network can mis-announce a prefix it does not hold and pull the owner's traffic towards itself. With RPKI, the holder publishes signed Route Origin Authorizations (ROAs) naming which AS may originate the prefix. Routers mark each route Valid, Invalid or NotFound and can block Invalid ones. RPKI checks only the origin AS, not the path, so a forged path ending in the valid AS still succeeds.
+Resource: RFC 6811 - BGP Prefix Origin Validation - https://www.rfc-editor.org/rfc/rfc6811
 
-## AI
-NIST classifies attacks by lifecycle stage and by goal: availability, integrity or privacy. Evasion happens after deployment: the attacker slightly changes an input to create an adversarial example that the model misclassifies. Poisoning happens during training: the attacker inserts or modifies training data, or controls the model's parameters, for example a supplier's poisoned model. Privacy attacks, such as membership inference, try to learn about the training data or the model.
-Resource: NIST AI 100-2e2025 - Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations - https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2025.pdf
+## Cybersecurity
+Log4Shell (CVE-2021-44228) was a flaw in log4j-core, part of the Apache Log4j 2 Java logging library. Its JNDI features did not protect against attacker-controlled LDAP endpoints, so anyone controlling a log message could make the server load and run arbitrary code. It scored 10.0 Critical: attackable over the network, low complexity, no privileges or user interaction needed. Apache fixed it in 2.15.0 for Java 8, 2.12.2 for Java 7 and 2.3.1 for Java 6.
+Resource: Security - Apache Logging Services - https://logging.apache.org/security.html
 
-## Mobile
-MASVS is OWASP's security standard for mobile apps, used as a metric, guidance and baseline for security verification, including during procurement. Its controls sit in eight groups: STORAGE, CRYPTO, AUTH, NETWORK, PLATFORM, CODE, RESILIENCE and PRIVACY, numbered like MASVS-CODE-3. Testers assess the app against these controls with MASTG test cases, using a MAS testing profile chosen by risk with business owners. Backend servers are checked separately with OWASP ASVS.
-Resource: The Mobile Application Security Verification Standard - OWASP Mobile Application Security - https://mas.owasp.org/MASVS/03-Using_the_MASVS/
-
+## Data
+An SBOM is a nested inventory, a list of ingredients that make up software. The 2026 CISA Minimum Elements, which replace the NTIA 2021 list, set two groups of data fields. SBOM Metadata: author, author signature, data format name and version, generation context, timestamp, tool name and version, and SBOM version. Component Data: producer, name, version, identifiers, hash value and hash algorithm, license, and dependency relationship. An SBOM should cover all components, including transitive dependencies.
+Resource: 2026 Minimum Elements for a Software Bill of Materials (SBOM) - https://www.cisa.gov/sites/default/files/2026-07/2026_cisa_sbom_minimum_elements_508c.pdf
